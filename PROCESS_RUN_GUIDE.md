@@ -1,22 +1,11 @@
-## Process Run Guide
+# Full Process Run Guide
 
-1. Install dependencies globally (no venv required):
-   - `pip install -r requirements.txt`
-2. Start server:
-   - `python app.py`
-3. Login as `BEAST/admin123`.
-4. CCF setup order:
-   - Create users
-   - Create session
-   - Create/search course (exam+program+faculty)
-   - Upload student data for selected session/course
-5. Clerk:
-   - Keep session selected
-   - Search students and submit requests
-   - Track status by session
-6. Admin:
-   - Filter with date calendar
-   - Approve/reject/suggest edits
-7. Final:
-   - Select request IDs by checkbox
-   - Export selected data or mark DONE/PENDING
+1. Login with `BEAST/admin123`.
+2. Create session(s), exam(s), and users (CLERK/ADMIN/FINAL).
+3. Upload result file using CCF upload flow.
+4. Login as Clerk, update student data, submit request.
+5. Login as Admin, filter requests, approve/reject/suggest edit.
+6. On approve, PDF letter is generated under `letters/`.
+7. Login as Final member, filter approved pipeline, bulk mark statuses.
+8. Export CSV/Excel from Admin and Final dashboards.
+9. Download audit logs from CCF dashboard.

@@ -1,21 +1,31 @@
-# University RLE/RPV System (No Streamlit)
+# University RLE/RPV System
 
-Flask + SQLite based result correction system with role-based dashboards.
+Streamlit + SQLite application for result correction workflows with role-based access.
 
 ## Default login
 - Username: `BEAST`
 - Password: `admin123`
 - Role: `CCF`
 
-## Run (works without venv)
-1. `pip install -r requirements.txt`
-2. `python app.py`
-3. Open `http://localhost:8501`
+## Run
+1. `python -m venv .venv`
+2. `source .venv/bin/activate`
+3. `pip install -r requirements.txt`
+4. `streamlit run app.py`
 
-## Highlights
-- No Streamlit and no Pillow dependency in this project setup.
-- CCF can search/select existing course before upload.
-- Clerk sees session-wise request status and has home/back links.
-- Admin date filtering uses browser date picker calendar.
-- Final member can click-select IDs, export selected CSV/Excel, and bulk update states.
-- Faculty scoping is enforced in Clerk/Admin/Final queries.
+## Modules
+- `app.py` entrypoint/routing
+- `db.py` schema bootstrap, dump, audit helpers
+- `auth.py` login/session checks
+- `ccf_page.py` CCF operations (user/session/exam/upload/audit)
+- `clerk_page.py` clerk workflow
+- `admin_page.py` admin workflow + PDF generation trigger
+- `final_page.py` final member bulk workflow
+- `import_config.py` import alias standards
+- `pdf_config.py` PDF format standards
+- `pdf_gen.py` PDF creation
+
+Artifacts generated at runtime:
+- `rle_runtime.db`
+- `sql_dump.sql`
+- `letters/*.pdf`
